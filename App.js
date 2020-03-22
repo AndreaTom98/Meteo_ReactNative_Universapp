@@ -1,11 +1,23 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
 import Header from "./components/Header";
 import WeatherCard from './components/WeatherCard';
+import AddCityModal from './components/AddCityModal';
 
 export default class App extends React.Component {
   state = {
     cities: ['Roma', 'Milano', 'Parigi'],
+    visible: false,
+  }
+  openModal = () => {
+    this.setState({
+      visible: true,
+    })
+  }
+  closeModal = () => {
+    this.setState({
+      visible: false,
+    })
   }
   render() {
     const cities = this.state.cities.map((city, index) => (
@@ -13,9 +25,11 @@ export default class App extends React.Component {
     ))
     return (
       <View style={styles.container}>
+        <AddCityModal visible={this.state.visible} closeModal={this.closeModal} />
         <Header title={"Meteo App"} />
         <ScrollView contentContainerStyle={styles.cardContainer}>
           {cities}
+          <Button title={'Aggiungi'} onPress={this.openModal} />
         </ScrollView>
       </View>
     );
