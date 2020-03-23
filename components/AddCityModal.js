@@ -10,6 +10,13 @@ class AddCityModal extends React.Component {
       text: value
     });
   };
+
+  addCityHandler = () => {
+      this.props.addCity(this.state.text)
+      this.setState({
+        text: ""
+    })
+  }
   render() {
     return (
       <Modal visible={this.props.visible} animationType={"slide"}>
@@ -21,7 +28,7 @@ class AddCityModal extends React.Component {
               onChangeText={this.handleChangedText}
               style={styles.input}
             />
-            <Button title={"+"} onPress={this.props.addCity.bind(this, this.state.text)} />
+            <Button title={"+"} onPress={this.addCityHandler} />
           </View>
 
           <Button title={"chiudi modal"} onPress={this.props.closeModal} />
