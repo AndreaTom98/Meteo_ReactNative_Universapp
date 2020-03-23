@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
 import Header from "./components/Header";
 import WeatherCard from './components/WeatherCard';
 import AddCityModal from './components/AddCityModal';
+import RoundButton from './components/RoundButton';
 
 export default class App extends React.Component {
   state = {
@@ -36,7 +37,7 @@ export default class App extends React.Component {
         <Header title={"Meteo App"} />
         <ScrollView contentContainerStyle={styles.cardContainer}>
           {cities}
-          <Button title={'Aggiungi'} onPress={this.openModal} />
+          <RoundButton onPress={this.openModal} />
         </ScrollView>
       </View>
     );
