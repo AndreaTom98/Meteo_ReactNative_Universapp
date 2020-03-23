@@ -4,9 +4,11 @@ import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 const RoundButton = (props) => {
     const plusImage = require('../assets/plus.png');
     const isPlus = props.plusButton;
+    const backgroundColor = isPlus ? 'green' : 'red';
+    const transform = isPlus ? [{rotate: '0deg'}] : [{rotate: '45deg'}]
     return (
-        <TouchableOpacity onPress={props.onPress} style={styles.container}>
-            <Image source={plusImage} style={styles.plusImage} />
+        <TouchableOpacity onPress={props.onPress} style={[styles.container, {backgroundColor}]}>
+            <Image source={plusImage} style={[styles.plusImage, {transform}]} />
         </TouchableOpacity>
     )
 }
@@ -15,7 +17,6 @@ const styles = StyleSheet.create({
     container: {
         width: 50,
         height: 50,
-        backgroundColor: 'green',
         borderRadius: 50,
         justifyContent: 'center',
         alignItems: 'center'

@@ -37,7 +37,7 @@ export default class App extends React.Component {
         <Header title={"Meteo App"} />
         <ScrollView contentContainerStyle={styles.cardContainer}>
           {cities}
-          <RoundButton onPress={this.openModal} />
+          <RoundButton plusButton={true} onPress={this.openModal} />
         </ScrollView>
       </View>
     );

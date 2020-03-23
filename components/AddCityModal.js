@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, Modal, Button, TextInput } from "react-native";
+import RoundButton from '../components/RoundButton';
 
 class AddCityModal extends React.Component {
   state = {
@@ -31,7 +32,7 @@ class AddCityModal extends React.Component {
             <Button title={"+"} onPress={this.addCityHandler} />
           </View>
 
-          <Button title={"chiudi modal"} onPress={this.props.closeModal} />
+          <RoundButton onPress={this.props.closeModal} />
         </View>
       </Modal>
     );
