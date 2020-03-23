@@ -7,7 +7,7 @@ const RoundButton = (props) => {
     const backgroundColor = isPlus ? 'green' : 'red';
     const transform = isPlus ? [{rotate: '0deg'}] : [{rotate: '45deg'}]
     return (
-        <TouchableOpacity onPress={props.onPress} style={[styles.container, {backgroundColor}]}>
+        <TouchableOpacity onPress={props.onPress} style={[styles.container, {backgroundColor}, {...props.style}]}>
             <Image source={plusImage} style={[styles.plusImage, {transform}]} />
         </TouchableOpacity>
     )

@@ -13,6 +13,10 @@ class AddCityModal extends React.Component {
   };
 
   addCityHandler = () => {
+      if (this.state.text.trim() === "") {
+        alert('Scrivi qualcosa')
+        return 
+      }
       this.props.addCity(this.state.text)
       this.setState({
         text: ""
@@ -23,16 +27,17 @@ class AddCityModal extends React.Component {
       <Modal visible={this.props.visible} animationType={"slide"}>
         <View style={styles.container}>
           <Text style={styles.title}>Aggiungi città</Text>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <TextInput
               value={this.state.text}
               onChangeText={this.handleChangedText}
               style={styles.input}
+              placeholder={'Aggiungi città'}
             />
-            <Button title={"+"} onPress={this.addCityHandler} />
+            <Button title={"Add"} onPress={this.addCityHandler} />
           </View>
 
-          <RoundButton onPress={this.props.closeModal} />
+          <RoundButton style={{marginTop: 30}} onPress={this.props.closeModal} />
         </View>
       </Modal>
     );
@@ -48,7 +53,9 @@ const styles = StyleSheet.create({
   input: {
     width: "70%",
     borderWidth: 1,
-    paddingVertical: 15
+    paddingVertical: 15,
+    paddingLeft: 10,
+    marginRight: 5,
   },
   title: {
     fontSize: 22,
