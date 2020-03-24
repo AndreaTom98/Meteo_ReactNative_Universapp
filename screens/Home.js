@@ -34,7 +34,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <AddCityModal addCity={this.addCity} visible={this.state.visible} closeModal={this.closeModal} />
-        <Header title={"Meteo App"} />
+        {/* <Header title={"Meteo App"} /> */}
         <ScrollView contentContainerStyle={styles.cardContainer}>
           {cities}
           <RoundButton plusButton={true} onPress={this.openModal} />

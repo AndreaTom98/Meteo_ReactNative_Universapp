@@ -1,11 +1,13 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Button} from 'react-native';
 
 
-const City = () => {
+const City = (props) => {
+    const navigation = props.navigation
     return (
-        <View>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
             <Text>hello from city</Text>
+            <Button title={'torna indietro'} onPress={() => navigation.goBack()} />
         </View>
     )
 }
