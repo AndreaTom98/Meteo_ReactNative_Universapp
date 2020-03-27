@@ -4,7 +4,6 @@ import {View, Text, Button} from 'react-native';
 
 const City = (props) => {
     const navigation = props.navigation;
-    console.warn(props.route.params.cityName)
     return (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
             <Text>hello from city</Text>
