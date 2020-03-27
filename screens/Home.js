@@ -38,7 +38,10 @@ export default class App extends React.Component {
         <ScrollView contentContainerStyle={styles.cardContainer}>
           {cities}
           <RoundButton plusButton={true} onPress={this.openModal} />
-          <Button title={'vai a city'} onPress={() => this.props.navigation.navigate('City')} />
+          <Button title={'vai a city'} onPress={() => this.props.navigation.navigate('City', {
+            cityName: 'Roma',
+            value: 'myValue'
+          })} />
         </ScrollView>
       </View>
     );
