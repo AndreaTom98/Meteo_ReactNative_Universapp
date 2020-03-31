@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import WeatherCard from '../components/WeatherCard';
 import AddCityModal from '../components/AddCityModal';
 import RoundButton from '../components/RoundButton';
+import {Ionicons} from '@expo/vector-icons';
 
 export default class App extends React.Component {
   state = {
@@ -42,6 +43,7 @@ export default class App extends React.Component {
             cityName: 'Roma',
             value: 'myValue'
           })} />
+          <Ionicons name="md-add" size={40} color="red" />
         </ScrollView>
       </View>
     );
