@@ -30,20 +30,14 @@ export default class App extends React.Component {
   }
   render() {
     const cities = this.state.cities.map((city, index) => (
-      <WeatherCard key={index} title={city} />
+      <WeatherCard navigation={this.props.navigation} key={index} title={city} />
     ))
     return (
       <View style={styles.container}>
         <AddCityModal addCity={this.addCity} visible={this.state.visible} closeModal={this.closeModal} />
-        {/* <Header title={"Meteo App"} /> */}
         <ScrollView contentContainerStyle={styles.cardContainer}>
           {cities}
           <RoundButton plusButton={true} onPress={this.openModal} />
-          <Button title={'vai a city'} onPress={() => this.props.navigation.navigate('City', {
-            cityName: 'Roma',
-            value: 'myValue'
-          })} />
-          <Ionicons name="md-add" size={40} color="red" />
         </ScrollView>
       </View>
     );
