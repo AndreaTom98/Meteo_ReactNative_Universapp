@@ -4,6 +4,7 @@ import { NavigationContainer, StackActions } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import {colors} from './utils/colors';
 import Home from "./screens/Home";
 import City from "./screens/City";
 import Profile from './screens/Profile';
@@ -17,7 +18,7 @@ const App = () => {
       <Stack.Navigator
         screenOptions={{
           headerStyle: {
-            backgroundColor: "#f4511e"
+            backgroundColor: colors.mainOrange
           },
           headerTintColor: "#fff",
           headerTitleStyle: {
@@ -35,7 +36,7 @@ const App = () => {
 const tabNavigation = () => {
   return (
       <Tab.Navigator screenOptions={({route}) => ({
-        tabBarIcon: ({color, focused, size}) => {
+        tabBarIcon: ({color, size}) => {
           let iconName;
 
           if (route.name === 'Home') {
@@ -47,7 +48,7 @@ const tabNavigation = () => {
         }
       })}
       tabBarOptions={{
-          activeTintColor: '#f4511e',
+          activeTintColor: colors.mainOrange,
           inactiveTintColor: 'grey'
       }}>
         <Tab.Screen name="Home" component={Home}  />
