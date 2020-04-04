@@ -47,7 +47,7 @@ export default class App extends React.Component {
         <WeatherCard
           navigation={this.props.navigation}
           key={index}
-          title={city.name}
+          data={city}
         />
       ));
     }

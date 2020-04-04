@@ -4,12 +4,13 @@ import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 const WeatherCard = (props) => {
     const goToCity = () => {
         props.navigation.navigate('City', {
-            title: props.title
+            title: props.title,
+            data: props.data,
         })
     }
     return (
         <TouchableOpacity onPress={goToCity} style={styles.card}>
-            <Text style={styles.title}>{props.title}</Text>
+            <Text style={styles.title}>{props.data.name}</Text>
         </TouchableOpacity>
     )
 }
