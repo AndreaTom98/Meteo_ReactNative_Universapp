@@ -40,17 +40,18 @@ export default class App extends React.Component {
     });
   };
   render() {
-    let cities = <Text>Stiamo aggiungendo la citta</Text>
+    let cities = <Text>sto caricando</Text>
     if (this.state.cities) {
       console.log(this.state.cities)
       cities = this.state.cities.map((city, index) => (
         <WeatherCard
           navigation={this.props.navigation}
           key={index}
-          title={'prova'}
+          title={city.name}
         />
       ));
     }
+
     return (
       <View style={styles.container}>
         <AddCityModal
