@@ -1,14 +1,24 @@
 import React from "react";
+import axios from 'axios';
 import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
-import Header from "../components/Header";
 import WeatherCard from '../components/WeatherCard';
 import AddCityModal from '../components/AddCityModal';
 import RoundButton from '../components/RoundButton';
+
+const APIKEY = 'eb72cb4d79dba11f135892e3198632c4';
 
 export default class App extends React.Component {
   state = {
     cities: [],
     visible: false,
+  }
+
+  componentDidMount() {
+    axios.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=eb72cb4d79dba11f135892e3198632c4').then(data => {
+      console.warn(data)
+    }).catch(error => {
+      console.log(error)
+    })
   }
   addCity = (city) => {
     console.log(city)
