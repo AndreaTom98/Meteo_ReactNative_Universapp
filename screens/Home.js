@@ -1,51 +1,63 @@
 import React from "react";
-import axios from 'axios';
+import axios from "axios";
 import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
-import WeatherCard from '../components/WeatherCard';
-import AddCityModal from '../components/AddCityModal';
-import RoundButton from '../components/RoundButton';
+import WeatherCard from "../components/WeatherCard";
+import AddCityModal from "../components/AddCityModal";
+import RoundButton from "../components/RoundButton";
 
-const APIKEY = 'eb72cb4d79dba11f135892e3198632c4';
+const APIKEY = "eb72cb4d79dba11f135892e3198632c4";
 
 export default class App extends React.Component {
   state = {
     cities: [],
-    visible: false,
-  }
+    visible: false
+  };
 
-  componentDidMount() {
-    axios.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=eb72cb4d79dba11f135892e3198632c4').then(data => {
-      console.warn(data)
-    }).catch(error => {
-      console.log(error)
-    })
-  }
-  addCity = (city) => {
-    console.log(city)
-    this.setState(prevState => {
-      return {
-        cities: prevState.cities.concat(city)
-      }
-    }, this.closeModal())
-  }
+  addCity = city => {
+    axios
+      .get(
+        `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${APIKEY}&lang=it`
+      )
+      .then(data => {
+        this.setState(prevState => {
+          return {
+            cities: prevState.cities.concat(data.data)
+          };
+        }, this.closeModal());
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
   openModal = () => {
     this.setState({
-      visible: true,
-    })
-  }
+      visible: true
+    });
+  };
   closeModal = () => {
     this.setState({
-      visible: false,
-    })
-  }
+      visible: false
+    });
+  };
   render() {
-    console.log('hello')
-    const cities = this.state.cities.map((city, index) => (
-      <WeatherCard navigation={this.props.navigation} key={index} title={city} />
-    ))
+    let cities = <Text>Stiamo aggiungendo la citta</Text>
+    if (this.state.cities) {
+      console.log(this.state.cities)
+      cities = this.state.cities.map((city, index) => (
+        <WeatherCard
+          navigation={this.props.navigation}
+          key={index}
+          title={'prova'}
+        />
+      ));
+    }
     return (
       <View style={styles.container}>
-        <AddCityModal addCity={this.addCity} visible={this.state.visible} closeModal={this.closeModal} />
+        <AddCityModal
+          addCity={this.addCity}
+          visible={this.state.visible}
+          closeModal={this.closeModal}
+        />
         <ScrollView contentContainerStyle={styles.cardContainer}>
           {cities}
           <RoundButton plusButton={true} onPress={this.openModal} />
@@ -57,10 +69,10 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   cardContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     flex: 1,
     marginTop: 20
   }
