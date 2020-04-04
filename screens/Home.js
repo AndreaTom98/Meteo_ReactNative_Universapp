@@ -4,7 +4,6 @@ import Header from "../components/Header";
 import WeatherCard from '../components/WeatherCard';
 import AddCityModal from '../components/AddCityModal';
 import RoundButton from '../components/RoundButton';
-import {Ionicons} from '@expo/vector-icons';
 
 export default class App extends React.Component {
   state = {
@@ -12,6 +11,7 @@ export default class App extends React.Component {
     visible: false,
   }
   addCity = (city) => {
+    console.log(city)
     this.setState(prevState => {
       return {
         cities: prevState.cities.concat(city)
@@ -29,6 +29,7 @@ export default class App extends React.Component {
     })
   }
   render() {
+    console.log('hello')
     const cities = this.state.cities.map((city, index) => (
       <WeatherCard navigation={this.props.navigation} key={index} title={city} />
     ))
