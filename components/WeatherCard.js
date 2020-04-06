@@ -10,7 +10,7 @@ const WeatherCard = (props) => {
     }
     return (
         <TouchableOpacity onPress={goToCity} style={styles.card}>
-            <Text style={styles.title}>{props.data.name}</Text>
+            <Text style={styles.title}>{props.data.city.name}</Text>
         </TouchableOpacity>
     )
 }

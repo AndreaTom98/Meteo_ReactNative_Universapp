@@ -27,7 +27,7 @@ const App = () => {
         }}
       >
         <Stack.Screen name="Home" component={tabNavigation} />
-        <Stack.Screen options={({route}) => ({title: route.params.title})} name="City" component={City} />
+        <Stack.Screen options={({route}) => ({title: route.params.data.city.name})} name="City" component={City} />
       </Stack.Navigator>
     </NavigationContainer>
   );

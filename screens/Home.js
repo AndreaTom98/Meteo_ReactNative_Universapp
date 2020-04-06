@@ -16,7 +16,7 @@ export default class App extends React.Component {
   addCity = city => {
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${APIKEY}&lang=it`
+        `http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${APIKEY}&lang=it`
       )
       .then(data => {
         this.setState(prevState => {
