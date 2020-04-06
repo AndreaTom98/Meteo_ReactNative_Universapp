@@ -14,15 +14,11 @@ const City = ({route}) => {
                 <Text>21 gradi</Text>
             </View>
             <ScrollView horizontal={true} style={styles.scrollContainer}>
-                <Text>dfrgthyjukiougbf</Text>
-                <Text>dfrgthyjukiougbf</Text>
-                <Text>dfrgthyjukiougbf</Text>
-                <Text>dfrgthyjukiougbf</Text>
-                <Text>dfrgthyjukiougbf</Text>
-                <Text>dfrgthyjukiougbf</Text>
-                <Text>dfrgthyjukiougbf</Text>
+
             </ScrollView>
-            <View style={styles.daysContainer}></View>
+            <View style={styles.daysContainer}>
+                
+            </View>
         </View>
     )
 }
