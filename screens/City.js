@@ -6,6 +6,11 @@ import WeatherDay from '../components/WeatherDay';
 const City = ({ route }) => {
   const { data } = route.params;
   console.log("from city.js:", data);
+  const WeatherTimeData = data.list.slice(0, 9);
+  console.log('sliced data', WeatherTimeData)
+  const WeathersTimes = WeatherTimeData.map(item => (
+    <WeatherTime data={item} />
+  ))
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       {/* frontContainer */}
@@ -19,15 +24,7 @@ const City = ({ route }) => {
           horizontal={true}
           contentContainerStyle={styles.scrollView}
         >
-          <WeatherTime />
-          <WeatherTime />
-          <WeatherTime />
-          <WeatherTime />
-          <WeatherTime />
-          <WeatherTime />
-          <WeatherTime />
-          <WeatherTime />
-          <WeatherTime />
+          {WeathersTimes}
         </ScrollView>
       </View>
 
