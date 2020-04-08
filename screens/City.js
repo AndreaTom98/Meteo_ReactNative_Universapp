@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import WeatherTime from "../components/WeatherTime";
+import WeatherDay from '../components/WeatherDay';
 
 const City = ({ route }) => {
   const { data } = route.params;
@@ -30,7 +31,11 @@ const City = ({ route }) => {
         </ScrollView>
       </View>
 
-      <View style={styles.daysContainer}></View>
+      <View style={styles.daysContainer}>
+        <WeatherDay />
+        <WeatherDay />
+        <WeatherDay />
+      </View>
     </View>
   );
 };
@@ -50,9 +55,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   scrollView: {
-    width: '100%',
     alignItems: 'center',
-    flex:1
   },
   daysContainer: {
     width: "100%",

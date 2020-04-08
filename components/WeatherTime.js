@@ -13,8 +13,10 @@ const WeatherTime = props => {
 
 const styles = StyleSheet.create({
     container: {
-        marginLeft: 20,
-        borderWidth: 1,
+        marginLeft: 22,
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        height: '100%',
     }
 })
 
