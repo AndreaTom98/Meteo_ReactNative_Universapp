@@ -1,11 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import WeatherIcon from '../components/WeatherIcon';
 
 const WeatherDay = props => {
     return (
         <View style={styles.container}>
             <Text style={styles.day}>Giovedi</Text>
-            <Text>icona</Text>
+            <WeatherIcon code={'09n'} />
             <View style={{flexDirection: 'row'}}>
                 <Text style={styles.temperature}>23</Text>
                 <Text style={styles.temperature}>16</Text>
@@ -21,10 +22,12 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     day: {
-        marginLeft: 5
+        marginLeft: 5,
+        fontSize: 20,
     },
     temperature: {
-        marginRight: 5
+        marginRight: 5,
+        fontSize: 22,
     }
 })
 

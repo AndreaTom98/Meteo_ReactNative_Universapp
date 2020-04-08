@@ -1,12 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import WeatherIcon from '../components/WeatherIcon';
 
 const WeatherTime = props => {
     return (
         <View style={styles.container}>
-            <Text>12</Text>
-            <Text>icona</Text>
-            <Text>20</Text>
+            <Text style={{fontSize: 18}}>12</Text>
+            <WeatherIcon code={'01n'} />
+            <Text style={{fontSize: 22}}>20</Text>
         </View>
     )
 }
