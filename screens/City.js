@@ -5,22 +5,24 @@ import WeatherDay from '../components/WeatherDay';
 
 const City = ({ route }) => {
   const { data } = route.params;
-  console.log("from city.js:", data);
+  console.log(data.list[0].main.temp)
   const WeatherTimeData = data.list.slice(0, 9);
-  console.log('sliced data', WeatherTimeData)
-  const WeathersTimes = WeatherTimeData.map(item => (
-    <WeatherTime data={item} />
+  const temperature = Math.floor(data.list[0].main.temp - 273.15)
+  const description = data.list[0].weather[0].description
+  const WeathersTimes = WeatherTimeData.map((item, index) => (
+    <WeatherTime data={item} key={index} />
   ))
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       {/* frontContainer */}
       <View style={styles.frontContainer}>
-        <Text style={styles.cityName}>Milano</Text>
-        <Text style={styles.description}>soleggiato</Text>
-        <Text style={styles.temperature}>21</Text>
+        <Text style={styles.cityName}>{data.city.name}</Text>
+        <Text style={styles.description}>{description}</Text>
+        <Text style={styles.temperature}>{temperature}</Text>
       </View>
       <View style={styles.scrollContainer}>
         <ScrollView
+          showsHorizontalScrollIndicator={false}
           horizontal={true}
           contentContainerStyle={styles.scrollView}
         >
