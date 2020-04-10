@@ -7,15 +7,16 @@ const WeatherDay = props => {
     // console.log(props.data);
     const indexDay = new Date(props.data.dt_txt).getDay();
     const day = dayOfWeek[indexDay];
-
-    console.log(day);
+    const temperature = Math.floor(props.data.main.temp - 273.15);
+    const code = props.data.weather[0].icon
     return (
         <View style={styles.container}>
-            <Text style={styles.day}>{day}</Text>
+            <View style={{width: 100}}>
+              <Text style={styles.day}>{day}</Text>
+            </View>
             <WeatherIcon code={'09n'} />
-            <View style={{flexDirection: 'row'}}>
-                <Text style={styles.temperature}>23</Text>
-                <Text style={styles.temperature}>16</Text>
+            <View style={{width: 50}}>
+                <Text style={styles.temperature}>{temperature}</Text>
             </View>
         </View>
     )
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
     },
     day: {
         marginLeft: 5,
-        fontSize: 20,
+        fontSize: 22,
     },
     temperature: {
         marginRight: 5,
