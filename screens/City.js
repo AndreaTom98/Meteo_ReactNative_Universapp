@@ -6,9 +6,19 @@ import WeatherDay from '../components/WeatherDay';
 const City = ({ route }) => {
   const { data } = route.params;
   console.log(data.list[0].main.temp)
-  const WeatherTimeData = data.list.slice(0, 9);
   const temperature = Math.floor(data.list[0].main.temp - 273.15)
   const description = data.list[0].weather[0].description
+  
+  // Weather day data
+  const WeatherDayData = data.list;
+  const filteredDayData = WeatherDayData.filter(day => {
+    return day.dt_txt.includes('18:00:00')
+  })
+  const WeatherDays = filteredDayData.map((item, index) => (
+    <WeatherDay data={item} key={index} />
+  ))
+  // Weather time data
+  const WeatherTimeData = data.list.slice(0, 9);
   const WeathersTimes = WeatherTimeData.map((item, index) => (
     <WeatherTime data={item} key={index} />
   ))
@@ -29,11 +39,8 @@ const City = ({ route }) => {
           {WeathersTimes}
         </ScrollView>
       </View>
-
       <View style={styles.daysContainer}>
-        <WeatherDay />
-        <WeatherDay />
-        <WeatherDay />
+        {WeatherDays}
       </View>
     </View>
   );
