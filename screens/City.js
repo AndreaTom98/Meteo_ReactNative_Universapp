@@ -39,7 +39,9 @@ const City = ({ route }) => {
         </ScrollView>
       </View>
       <View style={styles.daysContainer}>
-        {WeatherDays}
+        <ScrollView>
+          {WeatherDays}
+        </ScrollView>
       </View>
     </View>
   );
