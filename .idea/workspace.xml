@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9b18f7d-79ea-4c56-af43-eaaa3c3dab80" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/components/WeatherTime.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/WeatherTime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/City.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/City.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,9 +24,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">

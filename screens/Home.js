@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button, Dimensions } from "react-native";
 import WeatherCard from "../components/WeatherCard";
 import AddCityModal from "../components/AddCityModal";
 import RoundButton from "../components/RoundButton";

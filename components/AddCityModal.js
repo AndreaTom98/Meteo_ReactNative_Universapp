@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   Keyboard,
+  Dimensions
 } from "react-native";
 import {colors} from '../utils/colors'
 import RoundButton from "../components/RoundButton";
@@ -68,7 +69,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   input: {
-    width: "70%",
+    // width: "70%",
+    width: Dimensions.get('window').width / 2,
     borderBottomWidth: 1,
     paddingVertical: 15,
     paddingLeft: 10,
