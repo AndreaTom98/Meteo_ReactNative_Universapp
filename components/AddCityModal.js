@@ -69,8 +69,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   input: {
-    // width: "70%",
-    width: Dimensions.get('window').width / 2,
+    width: "70%",
     borderBottomWidth: 1,
     paddingVertical: 15,
     paddingLeft: 10,
