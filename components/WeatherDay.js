@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import WeatherIcon from '../components/WeatherIcon';
 
 const WeatherDay = props => {
@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
     },
     day: {
         marginLeft: 5,
-        fontSize: 22,
+        fontSize: Dimensions.get('window').height > 600 ? 22 : 18,
     },
     temperature: {
         marginRight: 5,
-        fontSize: 22,
+        fontSize: Dimensions.get('window').height > 600 ? 22 : 18,
     }
 })
 

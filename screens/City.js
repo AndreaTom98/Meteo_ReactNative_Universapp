@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Dimensions } from "react-native";
 import WeatherTime from "../components/WeatherTime";
 import WeatherDay from '../components/WeatherDay';
 
@@ -24,7 +24,6 @@ const City = ({ route }) => {
   ))
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      {/* frontContainer */}
       <View style={styles.frontContainer}>
         <Text style={styles.cityName}>{data.city.name}</Text>
         <Text style={styles.description}>{description}</Text>
@@ -68,13 +67,13 @@ const styles = StyleSheet.create({
     flex: 3
   },
   cityName: {
-    fontSize: 45
+    fontSize: Dimensions.get('window').height > 600 ? 45 : 35,
   },
   description: {
-    fontSize: 20
+    fontSize: Dimensions.get('window').height > 600 ? 20 : 15,
   },
   temperature: {
-    fontSize: 70,
+    fontSize: Dimensions.get('window').height > 600 ? 70 : 50,
     marginTop: 10
   }
 });

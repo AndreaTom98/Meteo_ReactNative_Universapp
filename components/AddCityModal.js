@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   roundButton: {
     position: "absolute",
-    bottom: 50
+    bottom: Dimensions.get('window').height > 600 ? 50 : 30,
   }
 });
 
