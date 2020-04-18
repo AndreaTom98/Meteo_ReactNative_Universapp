@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity, Platform} from 'react-native';
+import {colors} from '../utils/colors';
 
 const WeatherCard = (props) => {
     const goToCity = () => {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
     card: {
        height: 60,
        width: '80%',
-       backgroundColor: Platform.OS === "ios" ? 'white' : Colors.mainOrange,
+       backgroundColor: Platform.OS === "ios" ? 'white' : colors.mainOrange,
        shadowColor: 'black',
        shadowRadius: 2,
        shadowOffset: {width: 0, height: 2},
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
        borderRadius: 8,
     },
     title: {
-        color: 'black',
+        color: Platform.OS === "ios" ? 'black' : 'white',
         fontSize: 22
     }
 })
