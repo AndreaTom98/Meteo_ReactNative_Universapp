@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   StyleSheet,
   View,
@@ -13,29 +13,22 @@ import {
 import {colors} from '../utils/colors'
 import RoundButton from "../components/RoundButton";
 
-class AddCityModal extends React.Component {
-  state = {
-    text: ""
-  };
-  handleChangedText = value => {
-    this.setState({
-      text: value
-    });
+const AddCityModal = (props) => {
+  const [text, setText] = useState("");
+  const handleChangedText = value => {
+    setText(value)
   };
 
-  addCityHandler = () => {
-    if (this.state.text.trim() === "") {
+  const addCityHandler = () => {
+    if (text.trim() === "") {
       alert("Scrivi qualcosa");
       return;
     }
-    this.props.addCity(this.state.text);
-    this.setState({
-      text: ""
-    });
+    props.addCity(text);
+    setText("")
   };
-  render() {
     return (
-      <Modal visible={this.props.visible} animationType={"slide"}>
+      <Modal visible={props.visible} animationType={"slide"}>
         <TouchableWithoutFeedback onPress={() => {
           Keyboard.dismiss()
         }}>
@@ -43,24 +36,23 @@ class AddCityModal extends React.Component {
             <Text style={styles.title}>Aggiungi città</Text>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <TextInput
-                value={this.state.text}
-                onChangeText={this.handleChangedText}
+                value={text}
+                onChangeText={handleChangedText}
                 style={styles.input}
                 placeholder={"Aggiungi città"}
                 autoCorrect={false}
               />
-              <Button title={"Add"} onPress={this.addCityHandler} />
+              <Button title={"Add"} onPress={addCityHandler} />
             </View>
             <RoundButton
               style={styles.roundButton}
-              onPress={this.props.closeModal}
+              onPress={props.closeModal}
             />
           </View>
         </TouchableWithoutFeedback>
       </Modal>
     );
   }
-}
 
 const styles = StyleSheet.create({
   container: {
