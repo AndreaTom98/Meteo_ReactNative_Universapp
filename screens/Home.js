@@ -5,7 +5,7 @@ import WeatherCard from "../components/WeatherCard";
 import AddCityModal from "../components/AddCityModal";
 import RoundButton from "../components/RoundButton";
 
-const APIKEY = "eb72cb4d79dba11f135892e3198632c4";
+const APIKEY = '[inserisci la tua API KEY]'
 
 const App = props => {
   const [cities, setCities] = useState([]);
